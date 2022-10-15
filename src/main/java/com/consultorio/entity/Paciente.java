@@ -28,7 +28,7 @@ public class Paciente implements Serializable {
   @Column(name = "apellido_materno", nullable = false)
   private String apellido_materno;
   @Column(name = "dni", nullable = false, unique = true,length = 8)
-  private String dni;
+  private Integer dni;
   @Column(name = "direccion",nullable = false)
   private String direccion;
   @Column(name = "telefono",nullable = false,length = 9)
