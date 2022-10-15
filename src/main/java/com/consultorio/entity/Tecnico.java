@@ -4,7 +4,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 import lombok.*;
-import net.bytebuddy.utility.nullability.MaybeNull;
+
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
