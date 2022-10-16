@@ -9,9 +9,9 @@ public interface ContactoEmergenciaService {
 
   public abstract void edit(ContactoEmergencia contactoEmergencia);
 
-  public abstract void delete(Integer idcontactoemergencia);
+  public abstract void delete(Long idcontactoemergencia);
 
-  public abstract ContactoEmergencia findById(Integer idcontactoemergencia);
+  public abstract ContactoEmergencia findById(Long idcontactoemergencia);
 
   public abstract Collection<ContactoEmergencia> findAll();
   

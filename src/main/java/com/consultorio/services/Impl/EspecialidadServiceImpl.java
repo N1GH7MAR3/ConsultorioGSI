@@ -29,13 +29,13 @@ public class EspecialidadServiceImpl implements EspecialidadService {
 
   @Override
   @Transactional
-  public void delete(Integer idespecialidad) {
+  public void delete(Long idespecialidad) {
     repository.deleteById(idespecialidad);
   }
 
   @Override
   @Transactional(readOnly = true)
-  public Especialidad findById(Integer idespecialidad) {
+  public Especialidad findById(Long idespecialidad) {
     return repository.findById(idespecialidad).orElse(null);
   }
 

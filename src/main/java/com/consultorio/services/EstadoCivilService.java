@@ -9,9 +9,9 @@ public interface EstadoCivilService {
 
   public abstract void edit(EstadoCivil estadoCivil);
 
-  public abstract void delete(Integer idestadocivil);
+  public abstract void delete(Long idestadocivil);
 
-  public abstract EstadoCivil findById(Integer idestadocivil);
+  public abstract EstadoCivil findById(Long idestadocivil);
 
   public abstract Collection<EstadoCivil> findAll();
 }

@@ -9,9 +9,9 @@ public interface EspecialidadService {
 
   public abstract void edit(Especialidad especialidad);
 
-  public abstract void delete(Integer idespecialidad);
+  public abstract void delete(Long idespecialidad);
 
-  public abstract Especialidad findById(Integer idespecialidad);
+  public abstract Especialidad findById(Long idespecialidad);
 
   public abstract Collection<Especialidad> findAll();
 }

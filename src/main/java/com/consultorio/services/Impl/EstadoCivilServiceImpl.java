@@ -29,13 +29,13 @@ public class EstadoCivilServiceImpl implements EstadoCivilService {
 
   @Override
   @Transactional
-  public void delete(Integer idestadocivil) {
+  public void delete(Long idestadocivil) {
     repository.deleteById(idestadocivil);
   }
 
   @Override
   @Transactional(readOnly = true)
-  public EstadoCivil findById(Integer idestadocivil) {
+  public EstadoCivil findById(Long idestadocivil) {
     return repository.findById(idestadocivil).orElse(null);
   }
 

@@ -9,9 +9,9 @@ public interface TecnicoService {
 
   public abstract void edit(Tecnico tecnico);
 
-  public abstract void delete(Integer idtecnico);
+  public abstract void delete(Long idtecnico);
 
-  public abstract Tecnico findById(Integer idtecnico);
+  public abstract Tecnico findById(Long idtecnico);
 
   public abstract Collection<Tecnico> findAll();
 }

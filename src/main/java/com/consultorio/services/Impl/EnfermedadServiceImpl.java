@@ -29,13 +29,13 @@ public class EnfermedadServiceImpl implements EnfermedadService {
 
   @Override
   @Transactional
-  public void delete(Integer idenfermedad) {
+  public void delete(Long idenfermedad) {
     repository.deleteById(idenfermedad);
   }
 
   @Override
   @Transactional(readOnly = true)
-  public Enfermedad findById(Integer idenfermedad) {
+  public Enfermedad findById(Long idenfermedad) {
     return repository.findById(idenfermedad).orElse(null);
   }
 

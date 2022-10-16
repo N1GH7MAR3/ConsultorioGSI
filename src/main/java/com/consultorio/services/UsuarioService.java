@@ -9,9 +9,9 @@ public interface UsuarioService {
 
   public abstract void edit(Usuario usuario);
 
-  public abstract void delete(Integer idusuario);
+  public abstract void delete(Long idusuario);
 
-  public abstract Usuario findById(Integer idusuario);
+  public abstract Usuario findById(Long idusuario);
 
   public abstract Collection<Usuario> findAll();
 

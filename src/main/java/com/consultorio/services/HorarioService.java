@@ -9,9 +9,9 @@ public interface HorarioService {
 
   public abstract void edit(Horario horario);
 
-  public abstract void delete(Integer idhorario);
+  public abstract void delete(Long idhorario);
 
-  public abstract Horario findById(Integer idhorario);
+  public abstract Horario findById(Long idhorario);
 
   public abstract Collection<Horario> findAll();
 }

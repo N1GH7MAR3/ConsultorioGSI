@@ -9,9 +9,9 @@ public interface SexoService {
 
   public abstract void edit(Sexo sexo);
 
-  public abstract void delete(Integer idsexo);
+  public abstract void delete(Long idsexo);
 
-  public abstract Sexo findById(Integer idsexo);
+  public abstract Sexo findById(Long idsexo);
 
   public abstract Collection<Sexo> findAll();
 }

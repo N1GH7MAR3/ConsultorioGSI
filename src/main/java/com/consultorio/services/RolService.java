@@ -9,9 +9,9 @@ public interface RolService {
 
   public abstract void edit(Rol rol);
 
-  public abstract void delete(Integer idrol);
+  public abstract void delete(Long idrol);
 
-  public abstract Rol findById(Integer idrol);
+  public abstract Rol findById(Long idrol);
 
   public abstract Collection<Rol> findAll();
 }

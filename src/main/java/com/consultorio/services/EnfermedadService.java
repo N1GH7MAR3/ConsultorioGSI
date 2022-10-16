@@ -9,9 +9,9 @@ public interface EnfermedadService {
 
   public abstract void edit(Enfermedad enfermedad);
 
-  public abstract void delete(Integer idenfermedad);
+  public abstract void delete(Long idenfermedad);
 
-  public abstract Enfermedad findById(Integer idenfermedad);
+  public abstract Enfermedad findById(Long idenfermedad);
 
   public abstract Collection<Enfermedad> findAll();
 }

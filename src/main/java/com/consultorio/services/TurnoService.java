@@ -9,9 +9,9 @@ public interface TurnoService {
 
   public abstract void edit(Turno turno);
 
-  public abstract void delete(Integer idturno);
+  public abstract void delete(Long idturno);
 
-  public abstract Turno findById(Integer idturno);
+  public abstract Turno findById(Long idturno);
 
   public abstract Collection<Turno> findAll();
 }

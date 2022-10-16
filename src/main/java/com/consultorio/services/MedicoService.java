@@ -9,9 +9,9 @@ public interface MedicoService {
 
   public abstract void edit(Medico medico);
 
-  public abstract void delete(Integer idmedico);
+  public abstract void delete(Long idmedico);
 
-  public abstract Medico findById(Integer idmedico);
+  public abstract Medico findById(Long idmedico);
 
   public abstract Collection<Medico> findAll();
 }

@@ -29,13 +29,13 @@ public class ContactoEmergenciaImpl implements ContactoEmergenciaService {
 
   @Override
   @Transactional
-  public void delete(Integer idcontactoemergencia) {
+  public void delete(Long idcontactoemergencia) {
     repository.deleteById(idcontactoemergencia);
   }
 
   @Override
   @Transactional(readOnly = true)
-  public ContactoEmergencia findById(Integer idcontactoemergencia) {
+  public ContactoEmergencia findById(Long idcontactoemergencia) {
     return repository.findById(idcontactoemergencia).orElse(null);
   }
 

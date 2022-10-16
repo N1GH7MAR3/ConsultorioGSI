@@ -9,9 +9,9 @@ public interface ContactoMedicoService {
 
   public abstract void edit(ContactoMedico contactoMedico);
 
-  public abstract void delete(Integer idcontactomedico);
+  public abstract void delete(Long idcontactomedico);
 
-  public abstract ContactoMedico findById(Integer idcontactomedico);
+  public abstract ContactoMedico findById(Long idcontactomedico);
 
   public abstract Collection<ContactoMedico> findAll();
 }

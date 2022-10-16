@@ -29,13 +29,13 @@ public class MedicinaServiceImpl implements MedicinaService {
 
   @Override
   @Transactional
-  public void delete(Integer idmedicina) {
+  public void delete(Long idmedicina) {
     repository.deleteById(idmedicina);
   }
 
   @Override
   @Transactional(readOnly = true)
-  public Medicina findById(Integer idmedicina) {
+  public Medicina findById(Long idmedicina) {
     return repository.findById(idmedicina).orElse(null);
   }
 

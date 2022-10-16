@@ -11,9 +11,9 @@ public interface ProcedimientoService {
 
   public abstract void edit(Procedimiento procedimiento);
 
-  public abstract void delete(Integer idprocedimiento);
+  public abstract void delete(Long idprocedimiento);
 
-  public abstract Procedimiento findById(Integer idprocedimiento);
+  public abstract Procedimiento findById(Long idprocedimiento);
 
   public abstract Collection<Procedimiento> findAll();
 }

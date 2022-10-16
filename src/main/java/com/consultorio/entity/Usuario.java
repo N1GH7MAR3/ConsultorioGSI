@@ -23,7 +23,7 @@ public class Usuario implements Serializable {
   private String constraseña;
   private boolean estado;
   @ManyToOne
-  @JoinColumn(name = "id_rol",nullable = true)
+  @JoinColumn(name = "id_rol",nullable = false)
   private Rol rol;
   @OneToOne(mappedBy = "usuario")
   private Paciente paciente;

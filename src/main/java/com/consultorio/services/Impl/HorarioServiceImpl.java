@@ -29,13 +29,13 @@ public class HorarioServiceImpl implements HorarioService {
 
   @Override
   @Transactional
-  public void delete(Integer idhorario) {
+  public void delete(Long idhorario) {
     repository.deleteById(idhorario);
   }
 
   @Override
   @Transactional(readOnly = true)
-  public Horario findById(Integer idhorario) {
+  public Horario findById(Long idhorario) {
     return repository.findById(idhorario).orElse(null);
   }
 
