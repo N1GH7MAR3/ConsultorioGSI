@@ -31,7 +31,7 @@ public class AlergiaRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Alergia alergia) {
     alergiaService.insert(alergia);
-    return new ResponseEntity<>("Alergia Registrada", HttpStatus.CREATED);
+    return new ResponseEntity<>("Alergia Registrada",HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{alergiaId}")
