@@ -23,7 +23,7 @@ public class TecnicoServiceImpl implements TecnicoService {
 
   @Override
   @Transactional
-  public void edit(Tecnico tecnico) {
+  public void update(Tecnico tecnico) {
     repository.save(tecnico);
   }
 

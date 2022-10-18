@@ -25,7 +25,7 @@ public class AlergiaServiceImpl implements AlergiaService {
 
   @Override
   @Transactional
-  public void edit(Alergia alergia) {
+  public void update(Alergia alergia) {
     repository.save(alergia);
   }
 

@@ -23,7 +23,7 @@ public class PaisServiceImpl implements PaisService {
 
   @Override
   @Transactional
-  public void edit(Pais pais) {
+  public void update(Pais pais) {
     repository.save(pais);
   }
 

@@ -1,14 +1,14 @@
 package com.consultorio.services;
 
 import java.util.Collection;
-import java.util.Optional;
+
 
 import com.consultorio.entity.Paciente;
 
 public interface PacienteService {
   public abstract void insert(Paciente paciente);
 
-  public abstract void edit(Paciente paciente);
+  public abstract void update(Paciente paciente);
 
   public abstract void delete(Long idpaciente);
 
@@ -16,5 +16,5 @@ public interface PacienteService {
 
   public abstract Collection<Paciente> findAll();
 
-  public abstract Optional<Paciente> findByDni(Integer dni);
+  public abstract Paciente findByDni(Integer dni);
 }

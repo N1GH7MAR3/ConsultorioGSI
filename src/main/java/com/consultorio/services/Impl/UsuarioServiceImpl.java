@@ -11,26 +11,26 @@ import com.consultorio.repository.UsuarioRepository;
 import com.consultorio.services.UsuarioService;
 
 @Service
-public class UsuarioServiceImpl implements UsuarioService{
+public class UsuarioServiceImpl implements UsuarioService {
   @Autowired
   private UsuarioRepository repository;
 
   @Override
   @Transactional
   public void insert(Usuario usuario) {
-repository.save(usuario);    
+    repository.save(usuario);
   }
 
   @Override
   @Transactional
-  public void edit(Usuario usuario) {
-    repository.save(usuario);      
+  public void update(Usuario usuario) {
+    repository.save(usuario);
   }
 
   @Override
   @Transactional
   public void delete(Long idusuario) {
-repository.deleteById(idusuario);    
+    repository.deleteById(idusuario);
   }
 
   @Override
@@ -44,6 +44,5 @@ repository.deleteById(idusuario);
   public Collection<Usuario> findAll() {
     return repository.findAll();
   }
-  
-  
+
 }

@@ -23,7 +23,7 @@ public class HorarioServiceImpl implements HorarioService {
 
   @Override
   @Transactional
-  public void edit(Horario horario) {
+  public void update(Horario horario) {
     repository.save(horario);
   }
 

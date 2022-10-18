@@ -24,7 +24,7 @@ public class PacienteServiceImpl implements PacienteService {
 
   @Override
   @Transactional
-  public void edit(Paciente paciente) {
+  public void update(Paciente paciente) {
     repository.save(paciente);
   }
 
@@ -48,7 +48,7 @@ public class PacienteServiceImpl implements PacienteService {
 
   @Override
   @Transactional(readOnly = true)
-  public Optional<Paciente> findByDni(Integer dni) {
+  public Paciente findByDni(Integer dni) {
     return repository.findByDni(dni);
   }
 

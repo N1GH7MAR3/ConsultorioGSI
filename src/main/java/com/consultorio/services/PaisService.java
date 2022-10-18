@@ -7,7 +7,7 @@ import com.consultorio.entity.Pais;
 public interface PaisService {
   public abstract void insert(Pais pais);
 
-  public abstract void edit(Pais pais);
+  public abstract void update(Pais pais);
 
   public abstract void delete(Long idpais);
 

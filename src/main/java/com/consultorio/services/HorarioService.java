@@ -7,7 +7,7 @@ import com.consultorio.entity.Horario;
 public interface HorarioService {
   public abstract void insert(Horario horario);
 
-  public abstract void edit(Horario horario);
+  public abstract void update(Horario horario);
 
   public abstract void delete(Long idhorario);
 

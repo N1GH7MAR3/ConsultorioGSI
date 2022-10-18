@@ -23,7 +23,7 @@ public class TurnoServiceImpl implements TurnoService {
 
   @Override
   @Transactional
-  public void edit(Turno turno) {
+  public void update(Turno turno) {
     repository.save(turno);
   }
 

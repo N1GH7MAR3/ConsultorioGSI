@@ -23,7 +23,7 @@ public class MedicinaServiceImpl implements MedicinaService {
 
   @Override
   @Transactional
-  public void edit(Medicina medicina) {
+  public void update(Medicina medicina) {
     repository.save(medicina);
   }
 

@@ -7,7 +7,7 @@ import com.consultorio.entity.EstadoCivil;
 public interface EstadoCivilService {
   public abstract void insert(EstadoCivil estadoCivil);
 
-  public abstract void edit(EstadoCivil estadoCivil);
+  public abstract void update(EstadoCivil estadoCivil);
 
   public abstract void delete(Long idestadocivil);
 

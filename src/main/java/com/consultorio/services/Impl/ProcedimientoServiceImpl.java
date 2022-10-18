@@ -23,7 +23,7 @@ public class ProcedimientoServiceImpl implements ProcedimientoService {
 
   @Override
   @Transactional
-  public void edit(Procedimiento procedimiento) {
+  public void update(Procedimiento procedimiento) {
     repository.save(procedimiento);
   }
 

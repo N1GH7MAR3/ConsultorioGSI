@@ -7,7 +7,7 @@ import com.consultorio.entity.ContactoEmergencia;
 public interface ContactoEmergenciaService {
   public abstract void insert(ContactoEmergencia contactoEmergencia);
 
-  public abstract void edit(ContactoEmergencia contactoEmergencia);
+  public abstract void update(ContactoEmergencia contactoEmergencia);
 
   public abstract void delete(Long idcontactoemergencia);
 

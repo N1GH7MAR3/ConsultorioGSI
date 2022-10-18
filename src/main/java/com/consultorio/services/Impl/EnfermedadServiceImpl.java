@@ -23,7 +23,7 @@ public class EnfermedadServiceImpl implements EnfermedadService {
 
   @Override
   @Transactional
-  public void edit(Enfermedad enfermedad) {
+  public void update(Enfermedad enfermedad) {
     repository.save(enfermedad);
   }
 

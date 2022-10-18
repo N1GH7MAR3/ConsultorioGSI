@@ -23,7 +23,7 @@ public class EspecialidadServiceImpl implements EspecialidadService {
 
   @Override
   @Transactional
-  public void edit(Especialidad especialidad) {
+  public void update(Especialidad especialidad) {
     repository.save(especialidad);
   }
 

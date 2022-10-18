@@ -23,7 +23,7 @@ public class ContactoEmergenciaImpl implements ContactoEmergenciaService {
 
   @Override
   @Transactional
-  public void edit(ContactoEmergencia contactoEmergencia) {
+  public void update(ContactoEmergencia contactoEmergencia) {
     repository.save(contactoEmergencia);
   }
 

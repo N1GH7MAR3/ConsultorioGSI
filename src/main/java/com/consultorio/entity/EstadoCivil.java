@@ -1,27 +1,80 @@
 package com.consultorio.entity;
+
 import java.io.Serializable;
 
 import javax.persistence.*;
 
-import lombok.*;
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity(name = "EstadoCivil")
 @Table(name = "EstadoCivil")
+
 public class EstadoCivil implements Serializable {
   private static final long serialVersion = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
-  @Column(name = "nombre",nullable = false,unique = true)
+  @Column(name = "nombre", nullable = false, unique = true)
   private String nombre;
-  @OneToOne(mappedBy = "estadoCivil")
-  private Paciente paciente;
-  @OneToOne(mappedBy = "estadoCivil")
-  private Medico medico ;
-  @OneToOne(mappedBy = "estadoCivil")
-  private Tecnico tecnico ;
-  
+  // @JsonBackReference
+  // @OneToOne(mappedBy = "estadoCivil")
+  // private Paciente paciente;
+  // @JsonBackReference
+  // @OneToOne(mappedBy = "estadoCivil")
+  // private Medico medico;
+  // @JsonBackReference
+  // @OneToOne(mappedBy = "estadoCivil")
+  // private Tecnico tecnico;
+
+  public EstadoCivil() {
+  }
+
+  public EstadoCivil(long id, String nombre, Paciente paciente, Medico medico, Tecnico tecnico) {
+    this.id = id;
+    this.nombre = nombre;
+    // this.paciente = paciente;
+    // this.medico = medico;
+    // this.tecnico = tecnico;
+  }
+
+  public long getId() {
+    return id;
+  }
+
+  public void setId(long id) {
+    this.id = id;
+  }
+
+  public String getNombre() {
+    return nombre;
+  }
+
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
+
+  // public Paciente getPaciente() {
+  //   return paciente;
+  // }
+
+  // public void setPaciente(Paciente paciente) {
+  //   this.paciente = paciente;
+  // }
+
+  // public Medico getMedico() {
+  //   return medico;
+  // }
+
+  // public void setMedico(Medico medico) {
+  //   this.medico = medico;
+  // }
+
+  // public Tecnico getTecnico() {
+  //   return tecnico;
+  // }
+
+  // public void setTecnico(Tecnico tecnico) {
+  //   this.tecnico = tecnico;
+  // }
+
 }

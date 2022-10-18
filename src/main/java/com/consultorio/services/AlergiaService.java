@@ -7,7 +7,7 @@ import com.consultorio.entity.Alergia;
 public interface AlergiaService {
   public abstract void insert(Alergia alergia);
 
-  public abstract void edit(Alergia alergia);
+  public abstract void update(Alergia alergia);
 
   public abstract void delete(Long idalergia);
 

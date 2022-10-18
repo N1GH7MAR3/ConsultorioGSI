@@ -2,18 +2,19 @@ package com.consultorio.services.Impl;
 
 import java.util.Collection;
 
+import com.consultorio.repository.CitaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.consultorio.entity.Cita;
-import com.consultorio.repository.CitaRespository;
+
 import com.consultorio.services.CitaService;
 
 @Service
 public class CitaServiceImpl implements CitaService {
   @Autowired
-  private CitaRespository repository;
+  private CitaRepository repository;
 
   @Override
   @Transactional
@@ -23,7 +24,7 @@ public class CitaServiceImpl implements CitaService {
 
   @Override
   @Transactional
-  public void edit(Cita cita) {
+  public void update(Cita cita) {
     repository.save(cita);
   }
 
@@ -45,4 +46,9 @@ public class CitaServiceImpl implements CitaService {
     return repository.findAll();
   }
 
+  @Override
+  @Transactional(readOnly = true)
+  public Cita findByDni(Integer dni) {
+    return repository.findByDni(dni);
+  }
 }

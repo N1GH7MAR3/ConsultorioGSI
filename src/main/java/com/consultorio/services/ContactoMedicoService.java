@@ -7,7 +7,7 @@ import com.consultorio.entity.ContactoMedico;
 public interface ContactoMedicoService {
   public abstract void insert(ContactoMedico contactoMedico);
 
-  public abstract void edit(ContactoMedico contactoMedico);
+  public abstract void update(ContactoMedico contactoMedico);
 
   public abstract void delete(Long idcontactomedico);
 

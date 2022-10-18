@@ -7,7 +7,7 @@ import com.consultorio.entity.Turno;
 public interface TurnoService {
   public abstract void insert(Turno turno);
 
-  public abstract void edit(Turno turno);
+  public abstract void update(Turno turno);
 
   public abstract void delete(Long idturno);
 

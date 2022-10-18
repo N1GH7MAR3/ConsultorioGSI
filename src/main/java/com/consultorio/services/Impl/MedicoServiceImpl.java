@@ -23,7 +23,7 @@ public class MedicoServiceImpl implements MedicoService {
 
   @Override
   @Transactional
-  public void edit(Medico medico) {
+  public void update(Medico medico) {
     repository.save(medico);
   }
 

@@ -23,7 +23,7 @@ public class RolServiceImpl implements RolService {
 
   @Override
   @Transactional
-  public void edit(Rol rol) {
+  public void update(Rol rol) {
     repository.save(rol);
   }
 

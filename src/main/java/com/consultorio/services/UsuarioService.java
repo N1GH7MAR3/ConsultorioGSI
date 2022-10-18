@@ -7,7 +7,7 @@ import com.consultorio.entity.Usuario;
 public interface UsuarioService {
   public abstract void insert(Usuario usuario);
 
-  public abstract void edit(Usuario usuario);
+  public abstract void update(Usuario usuario);
 
   public abstract void delete(Long idusuario);
 

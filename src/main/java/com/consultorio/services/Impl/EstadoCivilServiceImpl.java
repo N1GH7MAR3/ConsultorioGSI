@@ -23,7 +23,7 @@ public class EstadoCivilServiceImpl implements EstadoCivilService {
 
   @Override
   @Transactional
-  public void edit(EstadoCivil estadoCivil) {
+  public void update(EstadoCivil estadoCivil) {
     repository.save(estadoCivil);
   }
 

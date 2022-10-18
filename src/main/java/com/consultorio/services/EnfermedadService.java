@@ -7,7 +7,7 @@ import com.consultorio.entity.Enfermedad;
 public interface EnfermedadService {
   public abstract void insert(Enfermedad enfermedad);
 
-  public abstract void edit(Enfermedad enfermedad);
+  public abstract void update(Enfermedad enfermedad);
 
   public abstract void delete(Long idenfermedad);
 

@@ -23,7 +23,7 @@ public class SexoServiceImpl implements SexoService {
 
   @Override
   @Transactional
-  public void edit(Sexo sexo) {
+  public void update(Sexo sexo) {
     repository.save(sexo);
   }
 
