@@ -15,4 +15,8 @@ public interface UsuarioService {
 
   public abstract Collection<Usuario> findAll();
 
+  public abstract Usuario findByUserandPassword(String usuario, String contraseña);
+  public abstract Usuario findUsuario(String usuario);
+  
+
 }

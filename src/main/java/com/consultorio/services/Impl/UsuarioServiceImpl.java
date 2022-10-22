@@ -45,4 +45,19 @@ public class UsuarioServiceImpl implements UsuarioService {
     return repository.findAll();
   }
 
+  @Override
+  @Transactional
+  public Usuario findByUserandPassword(String usuario, String contraseña) {
+    return repository.findByUserandPassword(usuario, contraseña);
+    
+  }
+
+  @Override
+  @Transactional
+  public Usuario findUsuario(String usuario) {
+    return repository.findUsuario(usuario);
+    
+  }
+  
+
 }

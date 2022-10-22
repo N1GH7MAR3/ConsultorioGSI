@@ -2,13 +2,11 @@ package com.consultorio.entity;
 
 import java.io.Serializable;
 
-import java.util.*;
+
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity(name = "Paciente")
 @Table(name = "Paciente")
@@ -31,44 +29,41 @@ public class Paciente implements Serializable {
   private String telefono;
   @Column(name = "correo", nullable = false)
   private String correo;
-  //@JsonManagedReference
+  
   @ManyToOne
   @JoinColumn(name = "pais_id", nullable = false)
   private Pais pais;
-  //@JsonManagedReference
+  
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "estadocivil_id", nullable = false)
   private EstadoCivil estadoCivil;
-  //@JsonManagedReference
+ 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "sexo_id", nullable = false)
   private Sexo sexo;
-  //@JsonBackReference
+
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "usuario_id", nullable = false)
   private Usuario usuario;
-  // @JsonBackReference
-  // @OneToMany(mappedBy = "paciente")
-  // private Set<Cita> itemsCita = new HashSet<>();
 
-  // control de salud
-  //@JsonManagedReference
+
+
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "contactoemergencia_id", nullable = true, unique = true)
   private ContactoEmergencia contactoEmergencia;
-  //@JsonManagedReference
+
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "contactomedico_id", nullable = true, unique = true)
   private ContactoMedico contactoMedico;
-  //@JsonManagedReference
+
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "enfermedad_id", nullable = true, unique = true)
   private Enfermedad enfermedad;
-  //@JsonManagedReference
+
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "medicina_id", nullable = true, unique = true)
   private Medicina medicina;
-  //@JsonBackReference
+
   @OneToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "alergia_id", nullable = true, unique = true)
   private Alergia alergia;
@@ -77,8 +72,7 @@ public class Paciente implements Serializable {
   }
 
   public Paciente(long id, String nombre, String apellido_paterno, String apellido_materno, Integer dni,
-      String direccion, String telefono, String correo, Pais pais, EstadoCivil estadoCivil, Sexo sexo, Usuario usuario,
-      Set<Cita> itemsCita, ContactoEmergencia contactoEmergencia, ContactoMedico contactoMedico, Enfermedad enfermedad,
+      String direccion, String telefono, String correo, Pais pais, EstadoCivil estadoCivil, Sexo sexo, Usuario usuario, ContactoEmergencia contactoEmergencia, ContactoMedico contactoMedico, Enfermedad enfermedad,
       Medicina medicina, Alergia alergia) {
     this.id = id;
     this.nombre = nombre;
@@ -92,7 +86,6 @@ public class Paciente implements Serializable {
     this.estadoCivil = estadoCivil;
     this.sexo = sexo;
     this.usuario = usuario;
-    //this.itemsCita = itemsCita;
     this.contactoEmergencia = contactoEmergencia;
     this.contactoMedico = contactoMedico;
     this.enfermedad = enfermedad;
@@ -196,13 +189,7 @@ public class Paciente implements Serializable {
     this.usuario = usuario;
   }
 
-  // public Set<Cita> getItemsCita() {
-  //   return itemsCita;
-  // }
 
-  // public void setItemsCita(Set<Cita> itemsCita) {
-  //   this.itemsCita = itemsCita;
-  // }
 
   public ContactoEmergencia getContactoEmergencia() {
     return contactoEmergencia;

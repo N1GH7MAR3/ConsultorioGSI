@@ -1,13 +1,9 @@
+
 package com.consultorio.entity;
 
 import java.io.Serializable;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 
@@ -19,59 +15,57 @@ public class Usuario implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
-  @Column(name = "usuario",nullable = false,unique = true)
+  @Column(name = "usuario", nullable = false, unique = true)
   private String usuario;
-  @Column(name = "contraseña",nullable = false)
-  private String constraseña;
-  //@JsonManagedReference
-  @ManyToOne(fetch = FetchType.EAGER)
-  @JoinColumn(name = "id_rol",nullable = false)
-  private Rol rol;
+  @Column(name = "contraseña", nullable = false)
+  private String contraseña;
   // @JsonManagedReference
-  // @OneToOne(mappedBy = "usuario")
-  // private Paciente paciente;
+  @ManyToOne(fetch = FetchType.EAGER)
+  @JoinColumn(name = "id_rol", nullable = false)
+  private Rol rol;
+
+
   public Usuario() {
   }
-  public Usuario(long id, String usuario, String constraseña, Rol rol, Paciente paciente) {
+
+  public Usuario(long id, String usuario, String contraseña, Rol rol) {
     this.id = id;
     this.usuario = usuario;
-    this.constraseña = constraseña;
+    this.contraseña = contraseña;
     this.rol = rol;
-    // this.paciente = paciente;
   }
+
   public long getId() {
     return id;
   }
+
   public void setId(long id) {
     this.id = id;
   }
+
   public String getUsuario() {
     return usuario;
   }
+
   public void setUsuario(String usuario) {
     this.usuario = usuario;
   }
-  public String getConstraseña() {
-    return constraseña;
+
+  public String getContraseña() {
+    return contraseña;
   }
-  public void setConstraseña(String constraseña) {
-    this.constraseña = constraseña;
+
+  public void setContraseña(String contraseña) {
+    this.contraseña = contraseña;
   }
+
   public Rol getRol() {
     return rol;
   }
+
   public void setRol(Rol rol) {
     this.rol = rol;
   }
-  // public Paciente getPaciente() {
-  //   return paciente;
-  // }
-  // public void setPaciente(Paciente paciente) {
-  //   this.paciente = paciente;
-  // }
-
-
-  
 
   
 

@@ -5,6 +5,7 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.consultorio.entity.Paciente;
+import com.consultorio.entity.Usuario;
 import com.consultorio.services.PacienteService;
 @RestController
 @RequestMapping("/paciente")
@@ -65,6 +66,13 @@ public class PacienteRestController {
     }
     return new ResponseEntity<>("Paciente No existe", HttpStatus.NOT_FOUND);
   }
-
+  @PostMapping("/buscaruser")
+  public ResponseEntity<?> verifyuser(@RequestBody Usuario usuario){
+    Paciente pacientedb=pacienteService.findByUser(usuario.getUsuario());
+    if (pacientedb != null) {
+      return new ResponseEntity<>(pacientedb, HttpStatus.OK);
+    }
+    return new ResponseEntity<>("0", HttpStatus.NOT_FOUND);
+  }
   
 }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity(name = "Tecnico")
 @Table(name = "Tecnico")
@@ -22,31 +22,31 @@ public class Tecnico implements Serializable {
   private String apellido_materno;
   @Column(name = "dni", nullable = false, unique = true, length = 8)
   private String dni;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "pais_id", nullable = false)
   private Pais pais;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "estadocivil_id", nullable = false)
   private EstadoCivil estadoCivil;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "sexo_id", nullable = false)
   private Sexo sexo;
-  //@JsonManagedReference
+  
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "turno_id", nullable = false)
   private Turno turno;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "horario_id", nullable = false)
   private Horario horario;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "especialidad_id", nullable = false)
   private Especialidad especialidad;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "medico_id", nullable = false)
   private Medico medico;

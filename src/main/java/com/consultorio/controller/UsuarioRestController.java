@@ -4,7 +4,10 @@ import java.util.Collection;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.consultorio.entity.Paciente;
+
 import com.consultorio.entity.Usuario;
+import com.consultorio.services.PacienteService;
 import com.consultorio.services.UsuarioService;
 @RestController
 @RequestMapping("/usuario")
@@ -55,5 +58,24 @@ public class UsuarioRestController {
       return new ResponseEntity<>(usuariodb, HttpStatus.FOUND);
     }
     return new ResponseEntity<>("Usuario No Existe", HttpStatus.NOT_FOUND);
+  }
+
+  @PostMapping("/buscaruser")
+  public ResponseEntity<?> buscaruser(@RequestBody Usuario usuario){
+    Usuario usuariodb=usuarioService.findByUserandPassword(usuario.getUsuario(), usuario.getContraseña());
+    if (usuariodb != null) {
+      return new ResponseEntity<>(usuariodb, HttpStatus.OK);
+    }
+    return new ResponseEntity<>("0", HttpStatus.NOT_FOUND);
+  }
+
+  @PostMapping("/verifyuser")
+  public ResponseEntity<?> verifyuser(@RequestBody Usuario usuario){
+    
+    Usuario usuariodb=usuarioService.findUsuario(usuario.getUsuario());
+    if (usuariodb != null) {
+      return new ResponseEntity<>(usuariodb, HttpStatus.OK);
+    }
+    return new ResponseEntity<>("0", HttpStatus.NOT_FOUND);
   }
 }

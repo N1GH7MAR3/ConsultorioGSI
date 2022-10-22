@@ -52,4 +52,10 @@ public class PacienteServiceImpl implements PacienteService {
     return repository.findByDni(dni);
   }
 
+  @Override
+  @Transactional
+  public Paciente findByUser(String usuario) {
+    return repository.findByUser(usuario);
+  }
+
 }

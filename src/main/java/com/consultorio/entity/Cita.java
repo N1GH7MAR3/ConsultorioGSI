@@ -6,11 +6,9 @@ import java.util.Date;
 
 import javax.persistence.*;
 
-import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 
 @Entity(name = "Cita")
@@ -30,19 +28,19 @@ public class Cita implements Serializable {
   @Temporal(TemporalType.TIMESTAMP)
   @Column(name = "fechacita", nullable = false, unique = true)
   private Date fechacita;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "medico_id", nullable = false)
   private Medico medico;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "paciente_id", nullable = false)
   private Paciente paciente;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "especialidad_id", nullable = false)
   private Especialidad especialidad;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "procedimiento_id", nullable = false)
   private Procedimiento procedimiento;

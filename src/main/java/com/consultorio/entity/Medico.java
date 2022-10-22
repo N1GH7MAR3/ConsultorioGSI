@@ -2,13 +2,12 @@ package com.consultorio.entity;
 
 import java.io.Serializable;
 
-import java.util.HashSet;
-import java.util.Set;
+
+
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity(name = "Medico")
 @Table(name = "Medico")
@@ -26,39 +25,35 @@ public class Medico implements Serializable {
   private String apellido_materno;
   @Column(name = "dni", nullable = false, unique = true, length = 8)
   private String dni;
-  //@JsonManagedReference
+
   @ManyToOne
   @JoinColumn(name = "pais_id", nullable = false)
   private Pais pais;
-  //@JsonManagedReference
+
   @ManyToOne
   @JoinColumn(name = "estadocivil_id", nullable = false)
   private EstadoCivil estadoCivil;
-  //@JsonManagedReference
+
   @ManyToOne
   @JoinColumn(name = "sexo_id", nullable = false)
   private Sexo sexo;
-  //@JsonManagedReference
+
   @ManyToOne
   @JoinColumn(name = "turno_id", nullable = false)
   private Turno turno;
-  //@JsonManagedReference
+
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "horario_id", nullable = false)
   private Horario horario;
-  //@JsonManagedReference
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "especialidad_id", nullable = false)
   private Especialidad especialidad;
-  // @JsonBackReference
-  // @OneToMany(mappedBy = "medico")
-  // private Set<Tecnico> itemsTecnico = new HashSet<>();
 
   public Medico() {
   }
 
   public Medico(long id, String nombre, String apellido_paterno, String apellido_materno, String dni, Pais pais,
-      EstadoCivil estadoCivil, Sexo sexo, Turno turno, Horario horario, Set<Tecnico> itemsTecnico,
+      EstadoCivil estadoCivil, Sexo sexo, Turno turno, Horario horario,
       Especialidad especialidad) {
     this.id = id;
     this.nombre = nombre;
@@ -70,7 +65,6 @@ public class Medico implements Serializable {
     this.sexo = sexo;
     this.turno = turno;
     this.horario = horario;
-    //this.itemsTecnico = itemsTecnico;
     this.especialidad = especialidad;
   }
 
@@ -154,13 +148,7 @@ public class Medico implements Serializable {
     this.horario = horario;
   }
 
-  // public Set<Tecnico> getItemsTecnico() {
-  //   return itemsTecnico;
-  // }
 
-  // public void setItemsTecnico(Set<Tecnico> itemsTecnico) {
-  //   this.itemsTecnico = itemsTecnico;
-  // }
 
   public Especialidad getEspecialidad() {
     return especialidad;

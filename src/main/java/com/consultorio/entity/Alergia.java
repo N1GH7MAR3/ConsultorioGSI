@@ -4,10 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 // @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity(name = "Alergia")
@@ -20,10 +17,7 @@ public class Alergia implements Serializable {
   private long id;
   @Column(name = "descripcion", nullable = true)
   private String descripcion;
-  // @JsonManagedReference(value = "alergia")
-  // @JsonIgnore
-  // @OneToOne(mappedBy = "alergia")
-  // private Paciente paciente;
+
 
   public Alergia() {
   }

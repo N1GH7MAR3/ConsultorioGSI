@@ -17,4 +17,6 @@ public interface PacienteService {
   public abstract Collection<Paciente> findAll();
 
   public abstract Paciente findByDni(Integer dni);
+  
+  public abstract Paciente findByUser(String usuario);
 }

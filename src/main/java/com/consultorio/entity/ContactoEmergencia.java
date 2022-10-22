@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity(name = "ContactoEmergencia")
 @Table(name = "ContactoEmergencia")
@@ -16,17 +16,15 @@ public class ContactoEmergencia implements Serializable {
   private long id;
   @Column(name = "descripcion", nullable = true)
   private String descripcion;
-  // @JsonBackReference
-  // @OneToOne(mappedBy = "contactoEmergencia")
-  // private Paciente paciente;
+
 
   public ContactoEmergencia() {
   }
 
-  public ContactoEmergencia(long id, String descripcion, Paciente paciente) {
+  public ContactoEmergencia(long id, String descripcion) {
     this.id = id;
     this.descripcion = descripcion;
-    //this.paciente = paciente;
+
   }
 
   public long getId() {
@@ -45,12 +43,6 @@ public class ContactoEmergencia implements Serializable {
     this.descripcion = descripcion;
   }
 
-  // public Paciente getPaciente() {
-  //   return paciente;
-  // }
 
-  // public void setPaciente(Paciente paciente) {
-  //   this.paciente = paciente;
-  // }
 
 }

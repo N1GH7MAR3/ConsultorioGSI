@@ -1,13 +1,11 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 
 @Entity(name = "Procedimiento")
 @Table(name = "Procedimiento")
@@ -23,18 +21,16 @@ public class Procedimiento implements Serializable {
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "especialidad_id", nullable = false)
   private Especialidad especialidad;
-  // @JsonBackReference
-  // @OneToMany(mappedBy = "procedimiento")
-  // private Set<Cita> itemsCita = new HashSet<>();
+
 
   public Procedimiento() {
   }
 
-  public Procedimiento(long id, String nombre, Especialidad especialidad, Set<Cita> itemsCita) {
+  public Procedimiento(long id, String nombre, Especialidad especialidad) {
     this.id = id;
     this.nombre = nombre;
     this.especialidad = especialidad;
-    //this.itemsCita = itemsCita;
+
   }
 
   public long getId() {
@@ -61,12 +57,6 @@ public class Procedimiento implements Serializable {
     this.especialidad = especialidad;
   }
 
-  // public Set<Cita> getItemsCita() {
-  //   return itemsCita;
-  // }
 
-  // public void setItemsCita(Set<Cita> itemsCita) {
-  //   this.itemsCita = itemsCita;
-  // }
 
 }

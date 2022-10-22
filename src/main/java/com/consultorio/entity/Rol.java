@@ -1,12 +1,12 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+
+
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 
 @Entity(name = "Rol")
 @Table(name = "Rol")
@@ -19,17 +19,15 @@ public class Rol implements Serializable {
   private long id;
   @Column(name = "nombre", nullable = false)
   private String nombre;
-  // @JsonBackReference
-  // @OneToMany(mappedBy = "rol")
-  // private Set<Usuario> itemsUsuario = new HashSet<>();
+
 
   public Rol() {
   }
 
-  public Rol(long id, String nombre, Set<Usuario> itemsUsuario) {
+  public Rol(long id, String nombre) {
     this.id = id;
     this.nombre = nombre;
-    //this.itemsUsuario = itemsUsuario;
+
   }
 
   public long getId() {
@@ -48,12 +46,6 @@ public class Rol implements Serializable {
     this.nombre = nombre;
   }
 
-  // public Set<Usuario> getItemsUsuario() {
-  //   return itemsUsuario;
-  // }
 
-  // public void setItemsUsuario(Set<Usuario> itemsUsuario) {
-  //   this.itemsUsuario = itemsUsuario;
-  // }
 
 }
