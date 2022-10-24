@@ -1,6 +1,7 @@
 package com.consultorio.services.Impl;
 
 import java.util.Collection;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,5 +45,14 @@ public class ProcedimientoServiceImpl implements ProcedimientoService {
   public Collection<Procedimiento> findAll() {
     return repository.findAll();
   }
+
+  @Override
+  public Procedimiento findByEspecialidad(String nombre) {
+    return repository.findByEspecialidad(nombre);
+  }
+
+  
+  
+
 
 }

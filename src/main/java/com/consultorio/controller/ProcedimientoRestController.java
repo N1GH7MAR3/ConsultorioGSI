@@ -1,6 +1,8 @@
 package com.consultorio.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Collection;
+import java.util.Optional;
+
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +11,7 @@ import com.consultorio.services.ProcedimientoService;
 @RestController
 @RequestMapping("/procedimiento")
 public class ProcedimientoRestController {
+
   @Autowired
   private ProcedimientoService procedimientoService;
 
@@ -51,6 +54,15 @@ public class ProcedimientoRestController {
   @GetMapping("/buscar/{procedimientoId}")
   public ResponseEntity<?> buscar_GET(@PathVariable Long procedimientoId) {
     Procedimiento procedimientodb = procedimientoService.findById(procedimientoId);
+    if (procedimientodb != null) {
+      return new ResponseEntity<>(procedimientodb, HttpStatus.FOUND);
+    }
+    return new ResponseEntity<>("Procedimiento No Existe", HttpStatus.NOT_FOUND);
+  }
+
+  @GetMapping("/buscarxEspecialidad/{nombre}")
+  public ResponseEntity<?> buscarxEspecialidad_GET(@PathVariable String nombre) {
+    Procedimiento procedimientodb=procedimientoService.findByEspecialidad(nombre);
     if (procedimientodb != null) {
       return new ResponseEntity<>(procedimientodb, HttpStatus.FOUND);
     }

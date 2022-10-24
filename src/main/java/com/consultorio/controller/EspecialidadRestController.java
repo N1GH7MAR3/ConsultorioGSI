@@ -24,7 +24,7 @@ public class EspecialidadRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Especialidad especialidad) {
     especialidadService.insert(especialidad);
-    return new ResponseEntity<>("Especialidad Registrada", HttpStatus.CREATED);
+    return new ResponseEntity<>(especialidad, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{especialidadId}")
@@ -33,7 +33,7 @@ public class EspecialidadRestController {
     if (especialidaddb != null) {
       especialidad.setId(especialidadId);
       especialidadService.update(especialidad);
-      return new ResponseEntity<>("Especialidad Editada", HttpStatus.OK);
+      return new ResponseEntity<>(especialidad, HttpStatus.OK);
     }
     return new ResponseEntity<>("Especialidad No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class EspecialidadRestController {
     Especialidad especialidaddb = especialidadService.findById(especialidadId);
     if (especialidaddb != null) {
       especialidadService.delete(especialidadId);
-      return new ResponseEntity<>("Especialidad Eliminada", HttpStatus.OK);
+      return new ResponseEntity<>(especialidaddb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Especialidad No Existe", HttpStatus.NOT_FOUND);
   }
