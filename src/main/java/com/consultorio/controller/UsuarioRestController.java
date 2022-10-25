@@ -4,10 +4,10 @@ import java.util.Collection;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
-import com.consultorio.entity.Paciente;
+
 
 import com.consultorio.entity.Usuario;
-import com.consultorio.services.PacienteService;
+
 import com.consultorio.services.UsuarioService;
 @RestController
 @RequestMapping("/usuario")

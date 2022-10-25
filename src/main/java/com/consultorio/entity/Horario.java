@@ -1,11 +1,11 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-import java.time.LocalTime;
-
-
+import java.sql.Time;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 
@@ -18,44 +18,55 @@ public class Horario implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   @Column(name = "horaingreso", nullable = false)
-  private LocalTime horaingreso;
+  private String horaingreso;
   @Column(name = "horasalida", nullable = false)
-  private LocalTime horasalida;
+  private String horasalida;
 
 
   public Horario() {
   }
 
-  public Horario(long id, LocalTime horaingreso, LocalTime horasalida) {
+
+  public Horario(long id, String horaingreso, String horasalida) {
     this.id = id;
     this.horaingreso = horaingreso;
     this.horasalida = horasalida;
-
   }
+
 
   public long getId() {
     return id;
   }
 
+
   public void setId(long id) {
     this.id = id;
   }
 
-  public LocalTime getHoraingreso() {
+
+  public String getHoraingreso() {
     return horaingreso;
   }
 
-  public void setHoraingreso(LocalTime horaingreso) {
+
+  public void setHoraingreso(String horaingreso) {
     this.horaingreso = horaingreso;
   }
 
-  public LocalTime getHorasalida() {
+
+  public String getHorasalida() {
     return horasalida;
   }
 
-  public void setHorasalida(LocalTime horasalida) {
+
+  public void setHorasalida(String horasalida) {
     this.horasalida = horasalida;
   }
+
+
+  
+  
+  
 
 
 
