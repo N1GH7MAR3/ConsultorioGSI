@@ -56,4 +56,12 @@ public class MedicoRestController {
     }
     return new ResponseEntity<>("Medico No Existe", HttpStatus.NOT_FOUND);
   }
+  @GetMapping("/buscarxEspecialidad/{nombre}")
+  public ResponseEntity<?> buscarxEspecialidad_GET(@PathVariable String nombre) {
+    Collection<Medico> medicodb = medicoService.findByEspecialidad(nombre);
+    if (medicodb != null) {
+      return new ResponseEntity<>(medicodb, HttpStatus.FOUND);
+    }
+    return new ResponseEntity<>("Medico No Existe", HttpStatus.NOT_FOUND);
+  }
 }

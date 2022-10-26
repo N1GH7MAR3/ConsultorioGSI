@@ -15,5 +15,5 @@ public interface CitaService {
 
   public abstract Collection<Cita> findAll();
 
-  public abstract Cita findByDni(Integer dni);
+  public abstract Collection<Cita> findByDni(Integer dni);
 }

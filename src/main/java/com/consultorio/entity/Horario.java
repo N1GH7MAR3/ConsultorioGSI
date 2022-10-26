@@ -1,11 +1,11 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-import java.sql.Time;
+
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 
 

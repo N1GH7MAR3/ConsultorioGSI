@@ -17,6 +17,6 @@ public interface ProcedimientoService {
 
   public abstract Collection<Procedimiento> findAll();
 
-  public abstract Procedimiento findByEspecialidad(String nombre);
+  public abstract Collection<Procedimiento> findByEspecialidad(String nombre);
 
 }

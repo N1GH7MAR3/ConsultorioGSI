@@ -14,4 +14,6 @@ public interface MedicoService {
   public abstract Medico findById(Long idmedico);
 
   public abstract Collection<Medico> findAll();
+
+  public abstract Collection<Medico> findByEspecialidad(String nombre);
 }

@@ -62,9 +62,9 @@ public class CitaRestController {
 
   @GetMapping("/buscardni/{dni}")
   public ResponseEntity<?> buscarxdni_GET(@PathVariable Integer dni) {
-    Cita citadb = citaService.findByDni(dni);
+    Collection<Cita> citadb = citaService.findByDni(dni);
     if (citadb != null) {
-      return new ResponseEntity<>(citadb, HttpStatus.FOUND);
+      return new ResponseEntity<>(citadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Cita No existe", HttpStatus.NOT_FOUND);
 

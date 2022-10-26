@@ -48,7 +48,7 @@ public class CitaServiceImpl implements CitaService {
 
   @Override
   @Transactional(readOnly = true)
-  public Cita findByDni(Integer dni) {
+  public Collection<Cita> findByDni(Integer dni) {
     return repository.findByDni(dni);
   }
 }

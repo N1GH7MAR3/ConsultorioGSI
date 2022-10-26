@@ -45,4 +45,12 @@ public class MedicoServiceImpl implements MedicoService {
     return repository.findAll();
   }
 
+  @Override
+  @Transactional(readOnly = true)
+  public Collection<Medico> findByEspecialidad(String nombre) {
+    
+    return repository.findByEspecialidad(nombre);
+  }
+
+  
 }

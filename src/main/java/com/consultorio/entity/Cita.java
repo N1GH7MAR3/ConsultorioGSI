@@ -1,11 +1,17 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-
 import java.util.Date;
 
-import javax.persistence.*;
-
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -21,11 +27,9 @@ public class Cita implements Serializable {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
   @JsonFormat(pattern = "yyyy-MM-dd")
-  @Temporal(TemporalType.DATE)
   @Column(name = "fecharegistro", nullable = true)
   private Date fecharegistro;
-  @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-  @Temporal(TemporalType.TIMESTAMP)
+  @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
   @Column(name = "fechacita", nullable = false, unique = true)
   private Date fechacita;
 
@@ -48,8 +52,8 @@ public class Cita implements Serializable {
   public Cita() {
   }
 
-  public Cita(long id, Date fecharegistro, Date fechacita, Medico medico, Paciente paciente,
-      Especialidad especialidad, Procedimiento procedimiento) {
+  public Cita(long id, Date fecharegistro, Date fechacita, Medico medico, Paciente paciente, Especialidad especialidad,
+      Procedimiento procedimiento) {
     this.id = id;
     this.fecharegistro = fecharegistro;
     this.fechacita = fechacita;
@@ -115,4 +119,8 @@ public class Cita implements Serializable {
     this.procedimiento = procedimiento;
   }
 
+  
+
+  
+  
 }

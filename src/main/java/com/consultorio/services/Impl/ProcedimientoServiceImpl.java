@@ -47,7 +47,7 @@ public class ProcedimientoServiceImpl implements ProcedimientoService {
   }
 
   @Override
-  public Procedimiento findByEspecialidad(String nombre) {
+  public Collection<Procedimiento> findByEspecialidad(String nombre) {
     return repository.findByEspecialidad(nombre);
   }
 

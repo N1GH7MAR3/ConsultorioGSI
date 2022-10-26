@@ -62,9 +62,9 @@ public class ProcedimientoRestController {
 
   @GetMapping("/buscarxEspecialidad/{nombre}")
   public ResponseEntity<?> buscarxEspecialidad_GET(@PathVariable String nombre) {
-    Procedimiento procedimientodb=procedimientoService.findByEspecialidad(nombre);
+    Collection<Procedimiento> procedimientodb=procedimientoService.findByEspecialidad(nombre);
     if (procedimientodb != null) {
-      return new ResponseEntity<>(procedimientodb, HttpStatus.FOUND);
+      return new ResponseEntity<>(procedimientodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Procedimiento No Existe", HttpStatus.NOT_FOUND);
   }
