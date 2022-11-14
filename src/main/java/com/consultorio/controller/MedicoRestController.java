@@ -60,7 +60,7 @@ public class MedicoRestController {
   public ResponseEntity<?> buscarxEspecialidad_GET(@PathVariable String nombre) {
     Collection<Medico> medicodb = medicoService.findByEspecialidad(nombre);
     if (medicodb != null) {
-      return new ResponseEntity<>(medicodb, HttpStatus.FOUND);
+      return new ResponseEntity<>(medicodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Medico No Existe", HttpStatus.NOT_FOUND);
   }

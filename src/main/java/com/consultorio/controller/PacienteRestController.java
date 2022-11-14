@@ -25,7 +25,7 @@ public class PacienteRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Paciente paciente) {
     pacienteService.insert(paciente);
-    return new ResponseEntity<>("Paciente Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(paciente, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{pacienteId}")

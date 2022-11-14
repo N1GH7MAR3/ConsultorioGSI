@@ -23,6 +23,7 @@ public class Medico implements Serializable {
   private String apellido_paterno;
   @Column(name = "apellido_materno", nullable = false)
   private String apellido_materno;
+  
   @Column(name = "dni", nullable = false, unique = true, length = 8)
   private String dni;
 

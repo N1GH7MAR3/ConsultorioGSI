@@ -14,7 +14,7 @@ public class EstadoCivil implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private long id;
-  @Column(name = "nombre", nullable = false, unique = true)
+  @Column(name = "nombre", nullable = false)
   private String nombre;
 
 
