@@ -30,7 +30,7 @@ public class Paciente implements Serializable {
   @Column(name = "correo", nullable = false)
   private String correo;
   
-  @ManyToOne
+  @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "pais_id", nullable = false)
   private Pais pais;
   
