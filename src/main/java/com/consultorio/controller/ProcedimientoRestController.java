@@ -27,7 +27,7 @@ public class ProcedimientoRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Procedimiento procedimiento) {
     procedimientoService.insert(procedimiento);
-    return new ResponseEntity<>("Procedimiento Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(procedimiento, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{procedimientoId}")
@@ -36,7 +36,7 @@ public class ProcedimientoRestController {
     if (procedimientodb != null) {
       procedimiento.setId(procedimientoId);
       procedimientoService.update(procedimiento);
-      return new ResponseEntity<>("Procedimiento Editado", HttpStatus.OK);
+      return new ResponseEntity<>(procedimientodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Procedimiento No Existe", HttpStatus.NOT_FOUND);
   }
@@ -46,7 +46,7 @@ public class ProcedimientoRestController {
     Procedimiento procedimientodb = procedimientoService.findById(procedimientoId);
     if (procedimientodb != null) {
       procedimientoService.delete(procedimientoId);
-      return new ResponseEntity<>("Procedimiento Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(procedimientodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Procedimiento No Existe", HttpStatus.NOT_FOUND);
   }

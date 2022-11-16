@@ -24,7 +24,7 @@ public class MedicoRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Medico medico) {
     medicoService.insert(medico);
-    return new ResponseEntity<>("Medico Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(medico, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{medicoId}")
@@ -33,7 +33,7 @@ public class MedicoRestController {
     if (medicodb != null) {
       medico.setId(medicoId);
       medicoService.update(medico);
-      return new ResponseEntity<>("Medico Editado", HttpStatus.OK);
+      return new ResponseEntity<>(medicodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Medico No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class MedicoRestController {
     Medico medicodb = medicoService.findById(medicoId);
     if (medicodb != null) {
       medicoService.delete(medicoId);
-      return new ResponseEntity<>("Medico Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(medicodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Medico No Existe", HttpStatus.NOT_FOUND);
   }

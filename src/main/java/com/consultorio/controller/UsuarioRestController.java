@@ -36,7 +36,7 @@ public class UsuarioRestController {
     if (usuariodb != null) {
       usuario.setId(usuarioId);
       usuarioService.update(usuario);
-      return new ResponseEntity<>("Usuario Editado", HttpStatus.OK);
+      return new ResponseEntity<>(usuariodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Usuario No Existe", HttpStatus.NOT_FOUND);
   }
@@ -46,7 +46,7 @@ public class UsuarioRestController {
     Usuario usuariodb = usuarioService.findById(usuarioId);
     if (usuariodb != null) {
       usuarioService.delete(usuarioId);
-      return new ResponseEntity<>("Usuario Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(usuariodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Usuario No Existe", HttpStatus.NOT_FOUND);
   }

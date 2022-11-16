@@ -24,7 +24,7 @@ public class TecnicoRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Tecnico tecnico) {
     tecnicoService.insert(tecnico);
-    return new ResponseEntity<>("Tecnico Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(tecnico, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{tecnicoId}")
@@ -33,7 +33,7 @@ public class TecnicoRestController {
     if (tecnicodb != null) {
       tecnico.setId(tecnicoId);
       tecnicoService.update(tecnico);
-      return new ResponseEntity<>("Tecnico Editado", HttpStatus.OK);
+      return new ResponseEntity<>(tecnicodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Tecnico No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class TecnicoRestController {
     Tecnico tecnicodb = tecnicoService.findById(tecnicoId);
     if (tecnicodb != null) {
       tecnicoService.delete(tecnicoId);
-      return new ResponseEntity<>("Tecnico Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(tecnicodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Tecnico No Existe", HttpStatus.NOT_FOUND);
   }

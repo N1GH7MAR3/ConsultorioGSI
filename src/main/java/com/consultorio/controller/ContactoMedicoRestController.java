@@ -33,7 +33,7 @@ public class ContactoMedicoRestController {
     if (contactoMedicodb != null) {
       contactoMedico.setId(contactoMedicoId);
       contactoMedicoService.update(contactoMedico);
-      return new ResponseEntity<>("Contaco Medico Editado", HttpStatus.OK);
+      return new ResponseEntity<>(contactoMedicodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Contaco Medico No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class ContactoMedicoRestController {
     ContactoMedico contactoMedicodb = contactoMedicoService.findById(contactoMedicoId);
     if (contactoMedicodb != null) {
       contactoMedicoService.delete(contactoMedicoId);
-      return new ResponseEntity<>("Contaco Medico Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(contactoMedicodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Contaco Medico No Existe", HttpStatus.NOT_FOUND);
   }

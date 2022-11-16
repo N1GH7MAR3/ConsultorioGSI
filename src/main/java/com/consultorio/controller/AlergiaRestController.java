@@ -40,7 +40,7 @@ public class AlergiaRestController {
     if (alergiadb != null) {
       alergia.setId(alergiaId);
       alergiaService.update(alergia);
-      return new ResponseEntity<>("Alergia Editada", HttpStatus.OK);
+      return new ResponseEntity<>(alergiadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Alergia No Existe", HttpStatus.NOT_FOUND);
   }
@@ -50,7 +50,7 @@ public class AlergiaRestController {
     Alergia alergiadb = alergiaService.findById(alergiaId);
     if (alergiadb != null) {
       alergiaService.delete(alergiaId);
-      return new ResponseEntity<>("Alergia borrada", HttpStatus.OK);
+      return new ResponseEntity<>(alergiadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Alergia No Existe", HttpStatus.NOT_FOUND);
   }

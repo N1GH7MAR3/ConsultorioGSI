@@ -34,7 +34,7 @@ public class PacienteRestController {
     if (pacientedb != null) {
       paciente.setId(pacienteId);
       pacienteService.update(paciente);
-      return new ResponseEntity<>("Paciente Editado", HttpStatus.OK);
+      return new ResponseEntity<>(pacientedb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Paciente No Existe", HttpStatus.NOT_FOUND);
   }
@@ -44,7 +44,7 @@ public class PacienteRestController {
     Paciente pacientedb = pacienteService.findById(pacienteId);
     if (pacientedb != null) {
       pacienteService.delete(pacienteId);
-      return new ResponseEntity<>("Paciente borrada", HttpStatus.OK);
+      return new ResponseEntity<>(pacientedb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Paciente No Existe", HttpStatus.NOT_FOUND);
   }

@@ -33,7 +33,7 @@ public class EnfermedadRestController {
     if (enfermedaddb != null) {
       enfermedad.setId(enfermedadId);
       enfermedadService.update(enfermedad);
-      return new ResponseEntity<>("Enfermedad Editada", HttpStatus.OK);
+      return new ResponseEntity<>(enfermedaddb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Enfermedad No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class EnfermedadRestController {
     Enfermedad enfermedaddb = enfermedadService.findById(enfermedadId);
     if (enfermedaddb != null) {
       enfermedadService.delete(enfermedadId);
-      return new ResponseEntity<>("Enfermedad Eliminada", HttpStatus.OK);
+      return new ResponseEntity<>(enfermedaddb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Enfermedad No Existe", HttpStatus.NOT_FOUND);
   }

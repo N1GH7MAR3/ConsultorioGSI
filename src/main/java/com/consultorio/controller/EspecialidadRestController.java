@@ -1,16 +1,22 @@
 package com.consultorio.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Collection;
+import java.util.List;
+
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.consultorio.entity.Especialidad;
+import com.consultorio.entity.Procedimiento;
 import com.consultorio.services.EspecialidadService;
+import com.consultorio.services.ProcedimientoService;
 @RestController
 @RequestMapping("/especialidad")
 public class EspecialidadRestController {
   @Autowired
   private EspecialidadService especialidadService;
+  @Autowired
+  private ProcedimientoService procedimientoService;
 
   @GetMapping("/listar")
   public ResponseEntity<?> listar_GET() {
@@ -42,8 +48,13 @@ public class EspecialidadRestController {
   public ResponseEntity<?> borrar_DELETE(@PathVariable Long especialidadId) {
     Especialidad especialidaddb = especialidadService.findById(especialidadId);
     if (especialidaddb != null) {
-      especialidadService.delete(especialidadId);
-      return new ResponseEntity<>(especialidaddb, HttpStatus.OK);
+      Collection<Procedimiento> procedimientodb=procedimientoService.findByEspecialidad(especialidaddb.getNombre());
+      if(procedimientodb==null){
+        especialidadService.delete(especialidadId);
+        return new ResponseEntity<>(especialidaddb, HttpStatus.OK);
+      }
+      return new ResponseEntity<>("Debe eliminar los medicos y procedimientos asociados", HttpStatus.NOT_FOUND);
+      
     }
     return new ResponseEntity<>("Especialidad No Existe", HttpStatus.NOT_FOUND);
   }

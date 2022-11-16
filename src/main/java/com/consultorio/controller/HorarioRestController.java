@@ -24,7 +24,7 @@ public class HorarioRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Horario horario) {
     horarioService.insert(horario);
-    return new ResponseEntity<>("Horario Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(horario, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{horarioId}")
@@ -33,7 +33,7 @@ public class HorarioRestController {
     if (horariodb != null) {
       horario.setId(horarioId);
       horarioService.update(horario);
-      return new ResponseEntity<>("Horario Editado", HttpStatus.OK);
+      return new ResponseEntity<>(horariodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Horario No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class HorarioRestController {
     Horario horariodb = horarioService.findById(horarioId);
     if (horariodb != null) {
       horarioService.delete(horarioId);
-      return new ResponseEntity<>("Horario Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(horariodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Horario No Existe", HttpStatus.NOT_FOUND);
   }

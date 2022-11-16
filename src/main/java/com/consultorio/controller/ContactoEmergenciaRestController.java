@@ -33,7 +33,7 @@ public class ContactoEmergenciaRestController {
     if (contactoEmergenciadb != null) {
       contactoEmergencia.setId(contactoEmergenciaId);
       contactoEmergenciaService.update(contactoEmergencia);
-      return new ResponseEntity<>("Contacto De Emergencia Editado", HttpStatus.OK);
+      return new ResponseEntity<>(contactoEmergenciadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Contacto De Emergencia No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class ContactoEmergenciaRestController {
     ContactoEmergencia contactoEmergenciadb = contactoEmergenciaService.findById(contactoEmergenciaId);
     if (contactoEmergenciadb != null) {
       contactoEmergenciaService.delete(contactoEmergenciaId);
-      return new ResponseEntity<>("Contacto De Emergencia Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(contactoEmergenciadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Contacto De Emergencia No Existe", HttpStatus.NOT_FOUND);
   }

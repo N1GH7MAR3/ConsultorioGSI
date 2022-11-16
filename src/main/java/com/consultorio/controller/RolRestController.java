@@ -24,7 +24,7 @@ public class RolRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Rol rol) {
     rolService.insert(rol);
-    return new ResponseEntity<>("Rol Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(rol, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{rolId}")
@@ -33,7 +33,7 @@ public class RolRestController {
     if (roldb != null) {
       rol.setId(rolId);
       rolService.update(rol);
-      return new ResponseEntity<>("Rol Editado", HttpStatus.OK);
+      return new ResponseEntity<>(roldb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Rol No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class RolRestController {
     Rol roldb = rolService.findById(rolId);
     if (roldb != null) {
       rolService.delete(rolId);
-      return new ResponseEntity<>("Rol Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(roldb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Rol No Existe", HttpStatus.NOT_FOUND);
   }

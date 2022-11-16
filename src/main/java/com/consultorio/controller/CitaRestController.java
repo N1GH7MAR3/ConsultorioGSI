@@ -26,7 +26,7 @@ public class CitaRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Cita cita) {
     citaService.insert(cita);
-    return new ResponseEntity<>("Cita Registrada", HttpStatus.CREATED);
+    return new ResponseEntity<>(cita, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{citaId}")
@@ -35,7 +35,7 @@ public class CitaRestController {
     if (citadb != null) {
       cita.setId(citaId);
       citaService.update(cita);
-      return new ResponseEntity<>("Cita Editada", HttpStatus.OK);
+      return new ResponseEntity<>(citadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Cita No Existe", HttpStatus.NOT_FOUND);
   }

@@ -24,7 +24,7 @@ public class EstadoCivilRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody EstadoCivil estadoCivil) {
     estadoCivilService.insert(estadoCivil);
-    return new ResponseEntity<>("Estado Civil Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(estadoCivil, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{estadoCivilID}")
@@ -33,7 +33,7 @@ public class EstadoCivilRestController {
     if (estadoCivildb != null) {
       estadoCivil.setId(estadoCivilID);
       estadoCivilService.update(estadoCivil);
-      return new ResponseEntity<>("Estado Civil Editado", HttpStatus.OK);
+      return new ResponseEntity<>(estadoCivildb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Estado Civil No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class EstadoCivilRestController {
      EstadoCivil estadoCivildb = estadoCivilService.findById(estadoCivilID);
     if (estadoCivildb != null) {
       estadoCivilService.delete(estadoCivilID);
-      return new ResponseEntity<>("Estado Civil Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(estadoCivildb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Estado Civil No Existe", HttpStatus.NOT_FOUND);
   }

@@ -33,7 +33,7 @@ public class MedicinaRestController {
     if (medicinadb != null) {
       medicina.setId(medicinaId);
       medicinaService.update(medicina);
-      return new ResponseEntity<>("Medicina Editada", HttpStatus.OK);
+      return new ResponseEntity<>(medicinadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Medicina No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class MedicinaRestController {
     Medicina medicinadb = medicinaService.findById(medicinaId);
     if (medicinadb != null) {
       medicinaService.delete(medicinaId);
-      return new ResponseEntity<>("Medicina Eliminada", HttpStatus.OK);
+      return new ResponseEntity<>(medicinadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Medicina No Existe", HttpStatus.NOT_FOUND);
   }

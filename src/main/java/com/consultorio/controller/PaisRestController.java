@@ -25,7 +25,7 @@ public class PaisRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Pais pais) {
     paisService.insert(pais);
-    return new ResponseEntity<>("Pais Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(pais, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{paisId}")
@@ -34,7 +34,7 @@ public class PaisRestController {
     if (paisdb != null) {
       pais.setId(paisId);
       paisService.update(pais);
-      return new ResponseEntity<>("Pais Editado", HttpStatus.OK);
+      return new ResponseEntity<>(paisdb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Pais No Existe", HttpStatus.NOT_FOUND);
   }
@@ -44,7 +44,7 @@ public class PaisRestController {
     Pais paisdb = paisService.findById(paisId);
     if (paisdb != null) {
       paisService.delete(paisId);
-      return new ResponseEntity<>("Pais Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(paisdb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Pais No Existe", HttpStatus.NOT_FOUND);
   }

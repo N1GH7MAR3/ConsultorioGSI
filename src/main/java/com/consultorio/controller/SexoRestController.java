@@ -24,7 +24,7 @@ public class SexoRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Sexo sexo) {
     sexoService.insert(sexo);
-    return new ResponseEntity<>("Sexo Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(sexo, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{sexoId}")
@@ -33,7 +33,7 @@ public class SexoRestController {
     if (sexodb != null) {
       sexo.setId(sexoId);
       sexoService.update(sexo);
-      return new ResponseEntity<>("Sexo Editado", HttpStatus.OK);
+      return new ResponseEntity<>(sexodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Sexo No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class SexoRestController {
     Sexo sexodb = sexoService.findById(sexoId);
     if (sexodb != null) {
       sexoService.delete(sexoId);
-      return new ResponseEntity<>("Sexo Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(sexodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Sexo No Existe", HttpStatus.NOT_FOUND);
   }

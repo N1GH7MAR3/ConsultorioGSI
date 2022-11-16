@@ -24,7 +24,7 @@ public class TurnoRestController {
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Turno turno) {
     turnoService.insert(turno);
-    return new ResponseEntity<>("Turno Registrado", HttpStatus.CREATED);
+    return new ResponseEntity<>(turno, HttpStatus.CREATED);
   }
 
   @PutMapping("/editar/{turnoId}")
@@ -33,7 +33,7 @@ public class TurnoRestController {
     if (turnodb != null) {
       turno.setId(turnoId);
       turnoService.update(turno);
-      return new ResponseEntity<>("Turno Editado", HttpStatus.OK);
+      return new ResponseEntity<>(turnodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Turno No Existe", HttpStatus.NOT_FOUND);
   }
@@ -43,7 +43,7 @@ public class TurnoRestController {
     Turno turnodb = turnoService.findById(turnoId);
     if (turnodb != null) {
       turnoService.delete(turnoId);
-      return new ResponseEntity<>("Turno Eliminado", HttpStatus.OK);
+      return new ResponseEntity<>(turnodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Turno No Existe", HttpStatus.NOT_FOUND);
   }
