@@ -16,4 +16,5 @@ public interface MedicoService {
   public abstract Collection<Medico> findAll();
 
   public abstract Collection<Medico> findByEspecialidad(String nombre);
+  public abstract Medico findByNombre(String nombre);
 }

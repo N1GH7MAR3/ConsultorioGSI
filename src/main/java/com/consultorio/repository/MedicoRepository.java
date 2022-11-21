@@ -11,4 +11,5 @@ import com.consultorio.entity.Medico;
 public interface MedicoRepository extends JpaRepository<Medico,Long>{
   @Query(value="select * from Medico m join Especialidad e on e.id=m.especialidad_id where e.nombre=(:nombre)",nativeQuery =true)
     Collection<Medico> findByEspecialidad(@Param("nombre") String nombre);
+     Medico findByNombre(@Param("nombre")String nombre);
 }

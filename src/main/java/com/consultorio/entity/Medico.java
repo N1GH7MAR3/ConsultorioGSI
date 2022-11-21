@@ -1,17 +1,17 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-
-
-
+import java.util.Collection;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 
 @Entity(name = "Medico")
 @Table(name = "Medico")
-
 public class Medico implements Serializable {
   private static final long serialVersion = 1L;
   @Id
@@ -49,6 +49,10 @@ public class Medico implements Serializable {
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "especialidad_id", nullable = false)
   private Especialidad especialidad;
+  @JsonIgnore
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "medico_procedimientos",joinColumns = @JoinColumn(name="medico_id"),inverseJoinColumns  = @JoinColumn(name="procedimiento_id"))
+  private Collection<Procedimiento> procedimientos;
 
   public Medico() {
   }
@@ -157,6 +161,14 @@ public class Medico implements Serializable {
 
   public void setEspecialidad(Especialidad especialidad) {
     this.especialidad = especialidad;
+  }
+
+  public Collection<Procedimiento> getProcedimientos() {
+    return procedimientos;
+  }
+
+  public void setProcedimientos(Collection<Procedimiento> procedimientos) {
+    this.procedimientos = procedimientos;
   }
 
 }

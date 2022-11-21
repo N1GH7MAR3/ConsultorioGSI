@@ -32,6 +32,7 @@ public class MedicoRestController {
     Medico medicodb = medicoService.findById(medicoId);
     if (medicodb != null) {
       medico.setId(medicoId);
+      medico.setProcedimientos(medicodb.getProcedimientos());
       medicoService.update(medico);
       return new ResponseEntity<>(medicodb, HttpStatus.OK);
     }

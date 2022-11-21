@@ -47,8 +47,15 @@ public class ProcedimientoServiceImpl implements ProcedimientoService {
   }
 
   @Override
+  @Transactional(readOnly = true)
   public Collection<Procedimiento> findByEspecialidad(String nombre) {
     return repository.findByEspecialidad(nombre);
+  }
+
+  @Override
+  @Transactional(readOnly = true)
+  public Procedimiento findByNombre(String nombre) {
+    return repository.findByNombre(nombre);
   }
 
   

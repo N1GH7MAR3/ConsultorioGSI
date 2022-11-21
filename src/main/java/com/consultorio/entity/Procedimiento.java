@@ -1,9 +1,11 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-
+import java.util.Collection;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
 
@@ -21,7 +23,9 @@ public class Procedimiento implements Serializable {
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "especialidad_id", nullable = false)
   private Especialidad especialidad;
-
+@ManyToMany(mappedBy = "procedimientos")
+@JsonBackReference
+private Collection<Medico>medicos;
 
   public Procedimiento() {
   }
@@ -55,6 +59,14 @@ public class Procedimiento implements Serializable {
 
   public void setEspecialidad(Especialidad especialidad) {
     this.especialidad = especialidad;
+  }
+
+  public Collection<Medico> getMedicos() {
+    return medicos;
+  }
+
+  public void setMedicos(Collection<Medico> medicos) {
+    this.medicos = medicos;
   }
 
 

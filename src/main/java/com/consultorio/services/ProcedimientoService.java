@@ -14,6 +14,8 @@ public interface ProcedimientoService {
   public abstract void delete(Long idprocedimiento);
 
   public abstract Procedimiento findById(Long idprocedimiento);
+  public abstract Procedimiento findByNombre(String nombre);
+
 
   public abstract Collection<Procedimiento> findAll();
 
