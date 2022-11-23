@@ -43,6 +43,7 @@ public class MedicoRestController {
   public ResponseEntity<?> borrar_DELETE(@PathVariable Long medicoId) {
     Medico medicodb = medicoService.findById(medicoId);
     if (medicodb != null) {
+      
       medicoService.delete(medicoId);
       return new ResponseEntity<>(medicodb, HttpStatus.OK);
     }

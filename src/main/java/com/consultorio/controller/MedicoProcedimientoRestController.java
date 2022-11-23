@@ -29,15 +29,14 @@ public class MedicoProcedimientoRestController {
     Medico mediodb = medicoService.findById(id);
     if (mediodb != null) {
       Collection<Procedimiento>procedimientos=mediodb.getProcedimientos();
-      MedicosProcedimientos medicosProcedimientos = new MedicosProcedimientos(mediodb, procedimientos);
-
       return new ResponseEntity<>(procedimientos, HttpStatus.OK);
     }
     return new ResponseEntity<>("No existe el medico", HttpStatus.NOT_FOUND);
   }
-  @GetMapping("/listarmxp/{id}")
-  public ResponseEntity<?> listar_GET_Pro(@PathVariable Long id) {
-    Procedimiento procedimientodb=procedimientoService.findById(id);
+  @GetMapping("/listarmxp/{idp}")
+  public ResponseEntity<?> listar_GET_Pro(@PathVariable Long idp) {
+
+    Procedimiento procedimientodb=procedimientoService.findById(idp);
     if(procedimientodb!=null){
       Collection<Medico>medicos=procedimientodb.getMedicos();
       return new ResponseEntity<>(medicos, HttpStatus.OK);

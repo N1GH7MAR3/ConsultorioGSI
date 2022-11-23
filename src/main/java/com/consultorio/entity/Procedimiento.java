@@ -23,7 +23,7 @@ public class Procedimiento implements Serializable {
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "especialidad_id", nullable = false)
   private Especialidad especialidad;
-@ManyToMany(mappedBy = "procedimientos")
+@ManyToMany(mappedBy = "procedimientos",cascade=CascadeType.REMOVE)
 @JsonBackReference
 private Collection<Medico>medicos;
 
