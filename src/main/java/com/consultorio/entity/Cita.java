@@ -1,8 +1,6 @@
 package com.consultorio.entity;
 
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -30,11 +28,10 @@ public class Cita implements Serializable {
   private long id;
   @JsonFormat(pattern = "yyyy-MM-dd")
   @Column(name = "fecharegistro", nullable = true)
-  private LocalDate fecharegistro;
- 
+  private Date fecharegistro;
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  @Column(name = "fechacita", nullable = false, unique = true,columnDefinition = "TIMESTAMP")
-  private LocalDateTime fechacita;
+  @Column(name = "fechacita", nullable = false, unique = true)
+  private Date fechacita;
 
   @ManyToOne(fetch = FetchType.EAGER)
   @JoinColumn(name = "medico_id", nullable = false)
@@ -55,10 +52,8 @@ public class Cita implements Serializable {
   public Cita() {
   }
 
-  
-
-  public Cita(long id, LocalDate fecharegistro, LocalDateTime fechacita, Medico medico, Paciente paciente,
-      Especialidad especialidad, Procedimiento procedimiento) {
+  public Cita(long id, Date fecharegistro, Date fechacita, Medico medico, Paciente paciente, Especialidad especialidad,
+      Procedimiento procedimiento) {
     this.id = id;
     this.fecharegistro = fecharegistro;
     this.fechacita = fechacita;
@@ -68,8 +63,6 @@ public class Cita implements Serializable {
     this.procedimiento = procedimiento;
   }
 
-
-
   public long getId() {
     return id;
   }
@@ -78,31 +71,21 @@ public class Cita implements Serializable {
     this.id = id;
   }
 
-  
-
-  public LocalDate getFecharegistro() {
+  public Date getFecharegistro() {
     return fecharegistro;
   }
 
-
-
-  public void setFecharegistro(LocalDate fecharegistro) {
+  public void setFecharegistro(Date fecharegistro) {
     this.fecharegistro = fecharegistro;
   }
 
-
-
-  public LocalDateTime getFechacita() {
+  public Date getFechacita() {
     return fechacita;
   }
 
-
-
-  public void setFechacita(LocalDateTime fechacita) {
+  public void setFechacita(Date fechacita) {
     this.fechacita = fechacita;
   }
-
-
 
   public Medico getMedico() {
     return medico;

@@ -2,8 +2,11 @@ package com.consultorio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.Collection;
 import java.util.Date;
 
@@ -29,8 +32,13 @@ public class CitaRestController {
   }
 
   @PostMapping("/registrar")
-  public ResponseEntity<?> registrar_POST(@RequestBody Cita cita) {
-    cita.setFecharegistro(LocalDate.now());
+  public ResponseEntity<?> registrar_POST(@RequestBody Cita cita) throws ParseException {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
+    Date sdate = new Date();  
+    String fecha =formatter.format(sdate);
+    Date date= formatter.parse(fecha);
+
+    cita.setFecharegistro(date);
     citaService.insert(cita);
     return new ResponseEntity<>(cita, HttpStatus.CREATED);
   }
