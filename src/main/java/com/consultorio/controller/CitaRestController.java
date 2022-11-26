@@ -1,7 +1,12 @@
 package com.consultorio.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
+import java.util.Date;
+
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +30,7 @@ public class CitaRestController {
 
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Cita cita) {
+    cita.setFecharegistro(LocalDate.now());
     citaService.insert(cita);
     return new ResponseEntity<>(cita, HttpStatus.CREATED);
   }
