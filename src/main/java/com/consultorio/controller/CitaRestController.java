@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Calendar;
+
 import java.util.Collection;
 import java.util.Date;
 
@@ -59,7 +57,7 @@ public class CitaRestController {
     Cita citadb = citaService.findById(citaId);
     if (citadb != null) {
       citaService.delete(citaId);
-      return new ResponseEntity<>("Cita borrada", HttpStatus.OK);
+      return new ResponseEntity<>(citadb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Cita No Existe", HttpStatus.NOT_FOUND);
   }

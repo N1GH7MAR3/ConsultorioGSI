@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.consultorio.entity.Medico;
 import com.consultorio.entity.Procedimiento;
-import com.consultorio.relationship.MedicosProcedimientos;
 import com.consultorio.services.MedicoService;
 import com.consultorio.services.ProcedimientoService;
 

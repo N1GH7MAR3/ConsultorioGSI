@@ -33,7 +33,6 @@ public class PacienteRestController {
     Paciente pacientedb = pacienteService.findById(pacienteId);
     if (pacientedb != null) {
       paciente.setId(pacienteId);
-      
       paciente.setUsuario(pacientedb.getUsuario());
       paciente.setContactoEmergencia(pacientedb.getContactoEmergencia());
       paciente.setContactoMedico(pacientedb.getContactoMedico());
