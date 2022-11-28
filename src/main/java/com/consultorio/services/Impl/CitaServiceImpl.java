@@ -51,4 +51,9 @@ public class CitaServiceImpl implements CitaService {
   public Collection<Cita> findByDni(Integer dni) {
     return repository.findByDni(dni);
   }
+
+  @Override
+  public Cita findCitas(String fechacita, Long idespecialidad, Long medicoid, Long idprocedimiento) {
+    return repository.findCitas(fechacita, idespecialidad, medicoid, idprocedimiento);
+  }
 }

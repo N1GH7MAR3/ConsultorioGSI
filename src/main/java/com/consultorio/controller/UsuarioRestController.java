@@ -55,7 +55,7 @@ public class UsuarioRestController {
   public ResponseEntity<?> buscar_GET(@PathVariable Long usuarioId) {
     Usuario usuariodb = usuarioService.findById(usuarioId);
     if (usuariodb != null) {
-      return new ResponseEntity<>(usuariodb, HttpStatus.FOUND);
+      return new ResponseEntity<>(usuariodb, HttpStatus.OK);
     }
     return new ResponseEntity<>("Usuario No Existe", HttpStatus.NOT_FOUND);
   }
@@ -66,7 +66,7 @@ public class UsuarioRestController {
     if (usuariodb != null) {
       return new ResponseEntity<>(usuariodb, HttpStatus.OK);
     }
-    return new ResponseEntity<>("0", HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>("Contraseña Incorrecta", HttpStatus.NOT_FOUND);
   }
 
   @PostMapping("/verifyuser")
@@ -76,6 +76,6 @@ public class UsuarioRestController {
     if (usuariodb != null) {
       return new ResponseEntity<>(usuariodb, HttpStatus.OK);
     }
-    return new ResponseEntity<>("0", HttpStatus.NOT_FOUND);
+    return new ResponseEntity<>("No Existe Usuario", HttpStatus.NOT_FOUND);
   }
 }

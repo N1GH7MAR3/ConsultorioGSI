@@ -35,7 +35,6 @@ public class CitaRestController {
     Date sdate = new Date();  
     String fecha =formatter.format(sdate);
     Date date= formatter.parse(fecha);
-
     cita.setFecharegistro(date);
     citaService.insert(cita);
     return new ResponseEntity<>(cita, HttpStatus.CREATED);
@@ -46,6 +45,7 @@ public class CitaRestController {
     Cita citadb = citaService.findById(citaId);
     if (citadb != null) {
       cita.setId(citaId);
+      cita.setFecharegistro(citadb.getFecharegistro());
       citaService.update(cita);
       return new ResponseEntity<>(citadb, HttpStatus.OK);
     }
@@ -75,6 +75,15 @@ public class CitaRestController {
   @GetMapping("/buscardni/{dni}")
   public ResponseEntity<?> buscarxdni_GET(@PathVariable Integer dni) {
     Collection<Cita> citadb = citaService.findByDni(dni);
+    if (citadb != null) {
+      return new ResponseEntity<>(citadb, HttpStatus.OK);
+    }
+    return new ResponseEntity<>("Cita No existe", HttpStatus.NOT_FOUND);
+
+  }
+  @GetMapping("/buscarcita/{fechacita}/{idespecialidad}/{idmedico}/{idprocedimiento}")
+  public ResponseEntity<?> buscarcita_GET(@PathVariable String fechacita,@PathVariable Long idespecialidad,@PathVariable Long idmedico,@PathVariable Long idprocedimiento) {
+    Cita citadb = citaService.findCitas(fechacita, idespecialidad, idmedico, idprocedimiento);
     if (citadb != null) {
       return new ResponseEntity<>(citadb, HttpStatus.OK);
     }

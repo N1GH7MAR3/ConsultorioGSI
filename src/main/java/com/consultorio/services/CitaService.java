@@ -16,4 +16,5 @@ public interface CitaService {
   public abstract Collection<Cita> findAll();
 
   public abstract Collection<Cita> findByDni(Integer dni);
+  public abstract Cita findCitas(String fechacita,Long idespecialidad,Long medicoid,Long idprocedimiento);
 }

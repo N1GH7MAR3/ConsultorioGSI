@@ -1,11 +1,14 @@
 package com.consultorio.controller;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Collection;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import com.consultorio.entity.Horario;
 import com.consultorio.entity.Medico;
 import com.consultorio.services.MedicoService;
+
 @RestController
 @RequestMapping("/medico")
 public class MedicoRestController {
@@ -23,6 +26,15 @@ public class MedicoRestController {
 
   @PostMapping("/registrar")
   public ResponseEntity<?> registrar_POST(@RequestBody Medico medico) {
+    if (medico.getTurno().getId() == 1) {
+      Horario horario = new Horario();
+      horario.setId(1);
+      medico.setHorario(horario);
+    }else if(medico.getTurno().getId() == 2){
+      Horario horario = new Horario();
+      horario.setId(2);
+      medico.setHorario(horario);
+    }
     medicoService.insert(medico);
     return new ResponseEntity<>(medico, HttpStatus.CREATED);
   }
@@ -30,9 +42,19 @@ public class MedicoRestController {
   @PutMapping("/editar/{medicoId}")
   public ResponseEntity<?> editar_PUT(@PathVariable Long medicoId, @RequestBody Medico medico) {
     Medico medicodb = medicoService.findById(medicoId);
+
     if (medicodb != null) {
       medico.setId(medicoId);
       medico.setProcedimientos(medicodb.getProcedimientos());
+      if (medico.getTurno().getId() == 1) {
+        Horario horario = medicodb.getHorario();
+        horario.setId(1);
+        medico.setHorario(horario);
+      }else if (medico.getTurno().getId() == 2) {
+        Horario horario = medicodb.getHorario();
+        horario.setId(2);
+        medico.setHorario(horario);
+      }
       medicoService.update(medico);
       return new ResponseEntity<>(medicodb, HttpStatus.OK);
     }
@@ -43,7 +65,7 @@ public class MedicoRestController {
   public ResponseEntity<?> borrar_DELETE(@PathVariable Long medicoId) {
     Medico medicodb = medicoService.findById(medicoId);
     if (medicodb != null) {
-      
+
       medicoService.delete(medicoId);
       return new ResponseEntity<>(medicodb, HttpStatus.OK);
     }
@@ -58,6 +80,7 @@ public class MedicoRestController {
     }
     return new ResponseEntity<>("Medico No Existe", HttpStatus.NOT_FOUND);
   }
+
   @GetMapping("/buscarxEspecialidad/{nombre}")
   public ResponseEntity<?> buscarxEspecialidad_GET(@PathVariable String nombre) {
     Collection<Medico> medicodb = medicoService.findByEspecialidad(nombre);

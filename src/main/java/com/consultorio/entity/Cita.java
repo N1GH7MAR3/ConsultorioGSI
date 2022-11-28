@@ -29,8 +29,9 @@ public class Cita implements Serializable {
   @JsonFormat(pattern = "yyyy-MM-dd")
   @Column(name = "fecharegistro", nullable = true)
   private Date fecharegistro;
+  
   @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-  @Column(name = "fechacita", nullable = false, unique = true)
+  @Column(name = "fechacita", nullable = false, unique = true,columnDefinition = "DATETIME")
   private Date fechacita;
 
   @ManyToOne(fetch = FetchType.EAGER)

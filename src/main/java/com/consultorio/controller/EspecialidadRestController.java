@@ -7,8 +7,10 @@ import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
 import com.consultorio.entity.Especialidad;
+import com.consultorio.entity.Medico;
 import com.consultorio.entity.Procedimiento;
 import com.consultorio.services.EspecialidadService;
+import com.consultorio.services.MedicoService;
 import com.consultorio.services.ProcedimientoService;
 @RestController
 @RequestMapping("/especialidad")
@@ -17,6 +19,8 @@ public class EspecialidadRestController {
   private EspecialidadService especialidadService;
   @Autowired
   private ProcedimientoService procedimientoService;
+  @Autowired
+  private MedicoService medicoService;
 
   @GetMapping("/listar")
   public ResponseEntity<?> listar_GET() {
@@ -49,11 +53,15 @@ public class EspecialidadRestController {
     Especialidad especialidaddb = especialidadService.findById(especialidadId);
     if (especialidaddb != null) {
       Collection<Procedimiento> procedimientodb=procedimientoService.findByEspecialidad(especialidaddb.getNombre());
-      if(procedimientodb==null){
-        especialidadService.delete(especialidadId);
-        return new ResponseEntity<>(especialidaddb, HttpStatus.OK);
+      Collection<Medico>medicodb=medicoService.findByEspecialidad(especialidaddb.getNombre());
+      if(procedimientodb.isEmpty()){
+        if(medicodb.isEmpty()){
+          especialidadService.delete(especialidadId);
+          return new ResponseEntity<>(especialidaddb, HttpStatus.OK);
+        }
+        return new ResponseEntity<>("Debe eliminar los medicos asociados", HttpStatus.NOT_FOUND);
       }
-      return new ResponseEntity<>("Debe eliminar los medicos y procedimientos asociados", HttpStatus.NOT_FOUND);
+      return new ResponseEntity<>("Debe eliminar los procedimientos asociados", HttpStatus.NOT_FOUND);
       
     }
     return new ResponseEntity<>("Especialidad No Existe", HttpStatus.NOT_FOUND);
