@@ -11,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import com.consultorio.entity.Cita;
 
 public interface CitaRepository extends JpaRepository<Cita,Long>{
-  @Query(value="select * from Cita c join Paciente p on p.id=c.id where p.dni=(:dni)",nativeQuery = true)
+  @Query(value="select * from Cita c join Paciente p on p.id=c.paciente_id where p.dni=(:dni)",nativeQuery = true)
   Collection<Cita> findByDni(@Param("dni") int dni);
 
   @Query(value="select * from Cita where fechacita=(:fechacita) and especialidad_id=(:idespecialidad) and medico_id=(:idmedico) and procedimiento_id=(:idprocedimiento)",nativeQuery = true)
