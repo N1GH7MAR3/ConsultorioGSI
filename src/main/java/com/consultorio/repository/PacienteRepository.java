@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.consultorio.entity.Paciente;
 
 public interface PacienteRepository extends JpaRepository<Paciente,Long>{
+
   @Query(value="select * from Paciente p where p.dni=(:dni)",nativeQuery = true)
     Paciente findByDni(@Param("dni") int dni);
 
